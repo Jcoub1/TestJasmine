@@ -8,9 +8,38 @@
 ** La fonction renvoie null en cas d'erreur
 */
 function calculatrice(signe, gauche, droite) {
-    var result = null;
-
-    return result;
+  var result;
+    if (typeof gauche === 'number' && typeof droite === 'number') {
+	   	if (gauche>=1 && droite<430 && droite!=0) {
+		    switch (signe) {
+		   		case "*":
+		   			result = parseFloat(gauche)*parseFloat(droite);
+		   			return result;
+		   		break;
+		   		case "+":
+		   			result = parseFloat(gauche)+parseFloat(droite);
+		   			return result;
+		   		break;
+		   		case "-":
+		   			result = parseFloat(gauche)-parseFloat(droite);
+		   			return result;
+		   		break;
+		   		case "/":
+		   			result = parseFloat(gauche)/parseFloat(droite);
+		   			return result;
+		   		break;
+		   		default:
+		   			result=null;
+		   			return result;
+		    }
+		} else {
+		   	result = null;
+		   	return result;
+		}
+	}else{
+		result=null;
+		return result;
+	}
 }
  
 module.exports = calculatrice;
